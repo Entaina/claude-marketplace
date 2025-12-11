@@ -1,78 +1,78 @@
-# SW30 - Version Control System Plugin
+# SW30 - Utilidades para el Curso Software 3.0
 
-Spanish-language Git commands designed for non-technical users. Simplifies version control with natural language file selection and auto-generated commit messages.
+Conjunto de utilidades para el curso de Software 3.0 de [Entaina](https://entaina.ai). Incluye comandos en español diseñados para usuarios no técnicos que simplifican operaciones comunes de desarrollo.
 
-## Installation
+## Instalación
 
 ```bash
 /plugin marketplace add entaina/claude-marketplace
 /plugin install sw30@entaina
 ```
 
-## Commands
+## Comandos
 
-| Command | Description |
+| Comando | Descripción |
 |---------|-------------|
-| `/vcs:ayuda` | Display help for all VCS commands |
-| `/vcs:iniciar` | Initialize version control in current directory |
-| `/vcs:guardar` | Save changes with optional message or auto-generate |
-| `/vcs:cargar` | Restore a previous version |
-| `/vcs:historial` | View commit history |
-| `/vcs:diferencias` | Show pending changes with impact analysis |
-| `/vcs:etiquetar` | Create version tags for milestones |
-| `/vcs:limpiar` | Discard uncommitted changes |
+| `/vcs:ayuda` | Muestra ayuda de todos los comandos VCS |
+| `/vcs:iniciar` | Inicializa control de versiones en el directorio actual |
+| `/vcs:guardar` | Guarda cambios con mensaje automático o personalizado |
+| `/vcs:cargar` | Restaura una versión anterior |
+| `/vcs:historial` | Ver historial de commits |
+| `/vcs:diferencias` | Muestra cambios pendientes con análisis de impacto |
+| `/vcs:etiquetar` | Crea etiquetas de versión para hitos |
+| `/vcs:limpiar` | Descarta cambios no confirmados |
 
-## Usage Examples
+## Ejemplos de Uso
 
-### Initialize a project
+### Iniciar un proyecto
 ```bash
 /vcs:iniciar
 ```
 
-### Save all changes with auto-generated message
+### Guardar todos los cambios con mensaje automático
 ```bash
 /vcs:guardar
 ```
 
-### Save specific files with custom message
+### Guardar archivos específicos con mensaje personalizado
 ```bash
 /vcs:guardar "archivos JavaScript" -m "Corregir errores de autenticación"
 ```
 
-### View what changed
+### Ver qué ha cambiado
 ```bash
 /vcs:diferencias
 ```
 
-### View history
+### Ver historial
 ```bash
 /vcs:historial
 /vcs:historial 20
 ```
 
-### Create a version tag
+### Crear una etiqueta de versión
 ```bash
 /vcs:etiquetar "versión 1.0"
 ```
 
-### Restore a previous version
+### Restaurar una versión anterior
 ```bash
 /vcs:cargar abc123f
 /vcs:cargar "versión-1-0"
 ```
 
-### Discard all changes
+### Descartar todos los cambios
 ```bash
 /vcs:limpiar
 ```
 
-## Features
+## Características
 
-- **Natural Language File Selection**: Use descriptions like "all JavaScript files" or "files in src folder"
-- **Auto-Generated Commit Messages**: Analyzes changes and creates semantic commit messages
-- **Safety Confirmations**: Destructive operations require explicit "yes" confirmation
-- **Non-Technical Language**: All output uses clear, jargon-free Spanish
+- **Selección de Archivos en Lenguaje Natural**: Usa descripciones como "todos los archivos JavaScript" o "archivos en la carpeta src"
+- **Mensajes de Commit Automáticos**: Analiza los cambios y crea mensajes semánticos
+- **Confirmaciones de Seguridad**: Las operaciones destructivas requieren confirmación explícita
+- **Lenguaje No Técnico**: Toda la salida usa español claro y sin jerga técnica
 
-## License
+## Licencia
 
 MIT
