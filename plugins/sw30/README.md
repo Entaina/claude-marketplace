@@ -1,4 +1,4 @@
-# VCS - Version Control System Plugin
+# SW30 - Version Control System Plugin
 
 Spanish-language Git commands designed for non-technical users. Simplifies version control with natural language file selection and auto-generated commit messages.
 
@@ -6,7 +6,7 @@ Spanish-language Git commands designed for non-technical users. Simplifies versi
 
 ```bash
 /plugin marketplace add entaina/claude-marketplace
-/plugin install vcs@entaina
+/plugin install sw30@entaina
 ```
 
 ## Commands

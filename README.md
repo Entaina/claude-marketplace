@@ -30,9 +30,9 @@ After adding the marketplace:
 
 ## Available Plugins
 
-<!-- Plugins will be listed here as they are added -->
-
-*No plugins available yet. See "Creating Plugins" below to add your first plugin.*
+| Plugin | Description | Category |
+|--------|-------------|----------|
+| [sw30](plugins/sw30) | Spanish-language version control commands for non-technical users. Simplifies Git operations with natural language file selection and auto-generated commit messages. | devops |
 
 ## Creating Plugins
 

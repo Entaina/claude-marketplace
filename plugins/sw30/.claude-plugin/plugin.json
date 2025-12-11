@@ -1,5 +1,5 @@
 {
-  "name": "vcs",
+  "name": "sw30",
   "version": "1.0.0",
   "description": "Spanish-language version control commands for non-technical users. Simplifies Git operations with natural language file selection and auto-generated commit messages.",
   "author": {
@@ -9,5 +9,5 @@
   "license": "MIT",
   "keywords": ["git", "vcs", "version-control", "spanish", "non-technical", "commands"],
   "repository": "https://github.com/Entaina/claude-marketplace",
-  "homepage": "https://github.com/Entaina/claude-marketplace/tree/main/plugins/vcs"
+  "homepage": "https://github.com/Entaina/claude-marketplace/tree/main/plugins/sw30"
 }

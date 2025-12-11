@@ -11,8 +11,8 @@
   },
   "plugins": [
     {
-      "name": "vcs",
-      "source": "./plugins/vcs",
+      "name": "sw30",
+      "source": "./plugins/sw30",
       "description": "Spanish-language version control commands for non-technical users. Simplifies Git operations with natural language file selection and auto-generated commit messages.",
       "version": "1.0.0",
       "author": {
