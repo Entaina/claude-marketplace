@@ -1,3 +1,7 @@
+---
+description: Restaura el repositorio a un estado de commit, etiqueta o rama anterior
+---
+
 # VCS Cargar - Restaurar Versión Anterior
 
 Restaura el repositorio a un estado de commit, etiqueta o rama anterior.

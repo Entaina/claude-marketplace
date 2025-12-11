@@ -1,3 +1,7 @@
+---
+description: Crea una etiqueta para marcar hitos o versiones importantes del proyecto
+---
+
 # VCS Etiquetar - Crear Etiquetas de Versión
 
 Crea una etiqueta para el commit actual para marcar hitos o versiones importantes. Las etiquetas te ayudan a identificar puntos específicos en el historial de tu proyecto que son significativos.

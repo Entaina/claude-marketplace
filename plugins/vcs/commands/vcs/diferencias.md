@@ -1,3 +1,7 @@
+---
+description: Muestra cambios pendientes con resumen inteligente de impacto en el proyecto
+---
+
 # VCS Diferencias - Mostrar Cambios Pendientes
 
 Muestra todos los cambios actuales que están pendientes de ser confirmados, con un resumen inteligente de lo que significan los cambios para tu proyecto.

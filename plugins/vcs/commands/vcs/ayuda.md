@@ -1,3 +1,7 @@
+---
+description: Muestra información de ayuda sobre todos los comandos VCS disponibles
+---
+
 # VCS Ayuda - Ayuda del Sistema de Control de Versiones
 
 Muestra información útil sobre todos los comandos VCS disponibles.

@@ -1,3 +1,7 @@
+---
+description: Descarta cambios no confirmados para restaurar el repositorio a estado limpio
+---
+
 # VCS Limpiar - Restablecer a Estado Limpio
 
 Descarta modificaciones y archivos sin rastrear para devolver el repositorio a un estado limpio que coincida con el commit actual. Puede limpiar todos los cambios o archivos específicos. Esto elimina cambios sin confirmar y archivos nuevos.

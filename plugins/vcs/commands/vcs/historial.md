@@ -1,3 +1,7 @@
+---
+description: Muestra el historial de commits del repositorio en formato fácil de usar
+---
+
 # VCS Historial - Mostrar Historial de Commits
 
 Muestra el historial de commits del repositorio en un formato fácil de usar.

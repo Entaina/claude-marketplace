@@ -1,3 +1,7 @@
+---
+description: Guarda cambios en el control de versiones con mensaje automático o personalizado
+---
+
 # VCS Guardar - Añadir y Confirmar Cambios
 
 Guarda los cambios actuales en el sistema de control de versiones con un mensaje de confirmación. Puede guardar todos los cambios o archivos que coincidan con descripciones en lenguaje natural. Usa la opción -m para mensajes de confirmación.

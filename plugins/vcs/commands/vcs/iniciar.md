@@ -1,3 +1,7 @@
+---
+description: Inicializa un nuevo repositorio de control de versiones en el directorio actual
+---
+
 # VCS Iniciar - Inicializar Sistema de Control de Versiones
 
 Inicializa un nuevo repositorio de control de versiones en el directorio actual.
