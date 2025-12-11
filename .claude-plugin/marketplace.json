@@ -9,5 +9,17 @@
     "version": "1.0.0",
     "pluginRoot": "./plugins"
   },
-  "plugins": []
+  "plugins": [
+    {
+      "name": "vcs",
+      "source": "./plugins/vcs",
+      "description": "Spanish-language version control commands for non-technical users. Simplifies Git operations with natural language file selection and auto-generated commit messages.",
+      "version": "1.0.0",
+      "author": {
+        "name": "Entaina"
+      },
+      "keywords": ["git", "vcs", "version-control", "spanish", "non-technical", "commands"],
+      "category": "devops"
+    }
+  ]
 }
