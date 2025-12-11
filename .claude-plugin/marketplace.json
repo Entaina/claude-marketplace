@@ -1,0 +1,13 @@
+{
+  "name": "entaina",
+  "owner": {
+    "name": "Entaina",
+    "email": "plugins@entaina.com"
+  },
+  "metadata": {
+    "description": "Entaina's Claude Code plugin marketplace - curated plugins for AI-powered development workflows",
+    "version": "1.0.0",
+    "pluginRoot": "./plugins"
+  },
+  "plugins": []
+}
