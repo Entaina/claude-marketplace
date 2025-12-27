@@ -1,0 +1,10 @@
+{
+  "name": "product-dev",
+  "version": "1.0.0",
+  "description": "Gestión del ciclo de vida de features: crear, documentar con PRD, dividir en tareas, planificar e implementar",
+  "author": {
+    "name": "Entaina",
+    "url": "https://github.com/entaina"
+  },
+  "keywords": ["features", "prd", "tasks", "planning", "workflow", "product-development"]
+}
