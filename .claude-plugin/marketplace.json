@@ -20,6 +20,17 @@
       },
       "keywords": ["git", "vcs", "version-control", "spanish", "non-technical", "commands"],
       "category": "devops"
+    },
+    {
+      "name": "product-dev",
+      "source": "./plugins/product-dev",
+      "description": "Gestión del ciclo de vida de features: crear, documentar con PRD, dividir en tareas, planificar e implementar",
+      "version": "1.0.0",
+      "author": {
+        "name": "Entaina"
+      },
+      "keywords": ["features", "prd", "tasks", "planning", "workflow", "product-development"],
+      "category": "workflow"
     }
   ]
 }
