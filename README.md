@@ -33,6 +33,8 @@ After adding the marketplace:
 | Plugin | Description | Category |
 |--------|-------------|----------|
 | [sw30](plugins/sw30) | Spanish-language version control commands for non-technical users. Simplifies Git operations with natural language file selection and auto-generated commit messages. | devops |
+| [product-dev](plugins/product-dev) | Gestión del ciclo de vida de features: crear, documentar con PRD, dividir en tareas, planificar e implementar. | workflow |
+| [gdocs](plugins/gdocs) | Read and write Google Drive files (Docs, Sheets, Slides) from Claude Code with OAuth authentication. | productivity |
 
 ## Creating Plugins
 

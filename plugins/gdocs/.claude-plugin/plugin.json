@@ -1,0 +1,13 @@
+{
+  "name": "gdocs",
+  "version": "1.0.0",
+  "description": "Read and write Google Drive files (Docs, Sheets, Slides) from Claude Code",
+  "author": {
+    "name": "Entaina",
+    "url": "https://github.com/Entaina"
+  },
+  "license": "MIT",
+  "keywords": ["google-drive", "google-docs", "sheets", "slides", "oauth"],
+  "repository": "https://github.com/Entaina/claude-marketplace",
+  "homepage": "https://github.com/Entaina/claude-marketplace/tree/main/plugins/gdocs"
+}

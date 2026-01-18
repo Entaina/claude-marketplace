@@ -31,6 +31,17 @@
       },
       "keywords": ["features", "prd", "tasks", "planning", "workflow", "product-development"],
       "category": "workflow"
+    },
+    {
+      "name": "gdocs",
+      "source": "./plugins/gdocs",
+      "description": "Read and write Google Drive files (Docs, Sheets, Slides) from Claude Code with OAuth authentication",
+      "version": "1.0.0",
+      "author": {
+        "name": "Entaina"
+      },
+      "keywords": ["google-drive", "google-docs", "sheets", "slides", "oauth", "cloud-storage"],
+      "category": "productivity"
     }
   ]
 }
