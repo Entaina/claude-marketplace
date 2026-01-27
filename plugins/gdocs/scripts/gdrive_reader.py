@@ -130,33 +130,145 @@ def extract_doc_id_from_file(file_path: str) -> tuple[str, str]:
     return doc_id, file_type
 
 
+def format_text_run(text_run: dict) -> str:
+    """Format a text run with markdown styling based on its textStyle."""
+    content = text_run.get('content', '')
+    if not content or content == '\n':
+        return content
+
+    text_style = text_run.get('textStyle', {})
+
+    # Check for link
+    link = text_style.get('link', {})
+    url = link.get('url', '')
+
+    # Check for formatting
+    is_bold = text_style.get('bold', False)
+    is_italic = text_style.get('italic', False)
+    is_strikethrough = text_style.get('strikethrough', False)
+    is_code = text_style.get('weightedFontFamily', {}).get('fontFamily', '').lower() in ['courier new', 'consolas', 'monaco', 'menlo', 'monospace']
+
+    # Strip trailing newline for formatting, add back later
+    trailing_newline = content.endswith('\n')
+    text = content.rstrip('\n')
+
+    if not text:
+        return '\n' if trailing_newline else ''
+
+    # Apply code formatting first (no other formatting inside code)
+    if is_code:
+        text = f'`{text}`'
+    else:
+        # Apply formatting in order: strikethrough, then bold, then italic
+        if is_strikethrough:
+            text = f'~~{text}~~'
+        if is_bold:
+            text = f'**{text}**'
+        if is_italic:
+            text = f'*{text}*'
+
+    # Apply link
+    if url:
+        text = f'[{text}]({url})'
+
+    if trailing_newline:
+        text += '\n'
+
+    return text
+
+
+def get_list_prefix(paragraph: dict, list_info: dict) -> str:
+    """Get the markdown list prefix for a paragraph based on its bullet."""
+    bullet = paragraph.get('bullet', {})
+    if not bullet:
+        return ''
+
+    list_id = bullet.get('listId', '')
+    nesting_level = bullet.get('nestingLevel', 0)
+
+    # Get list properties
+    list_props = list_info.get(list_id, {}).get('listProperties', {})
+    nesting_levels = list_props.get('nestingLevels', [])
+
+    # Determine if ordered or unordered
+    is_ordered = False
+    if nesting_level < len(nesting_levels):
+        glyph_type = nesting_levels[nesting_level].get('glyphType', '')
+        glyph_symbol = nesting_levels[nesting_level].get('glyphSymbol', '')
+        # Ordered lists have glyphType like DECIMAL, ALPHA, ROMAN, etc.
+        is_ordered = glyph_type in ['DECIMAL', 'ALPHA', 'UPPER_ALPHA', 'ROMAN', 'UPPER_ROMAN']
+
+    indent = '  ' * nesting_level
+    prefix = '1. ' if is_ordered else '- '
+
+    return indent + prefix
+
+
 def read_google_doc(services, doc_id: str) -> str:
-    """Read a Google Doc and return its text content."""
+    """Read a Google Doc and return its content as markdown."""
     try:
         doc = services['docs'].documents().get(documentId=doc_id).execute()
 
         content = []
         title = doc.get('title', 'Untitled')
-        content.append(f"# {title}\n")
+        content.append(f"# {title}\n\n")
+
+        # Get list information for bullet/numbered lists
+        lists = doc.get('lists', {})
 
         for element in doc.get('body', {}).get('content', []):
             if 'paragraph' in element:
                 paragraph = element['paragraph']
-                para_text = []
+                para_style = paragraph.get('paragraphStyle', {})
+                named_style = para_style.get('namedStyleType', 'NORMAL_TEXT')
 
+                # Build paragraph text with formatting
+                para_text = []
                 for elem in paragraph.get('elements', []):
                     if 'textRun' in elem:
-                        para_text.append(elem['textRun'].get('content', ''))
+                        para_text.append(format_text_run(elem['textRun']))
+                    elif 'inlineObjectElement' in elem:
+                        # Handle inline images
+                        para_text.append('[image]')
 
-                text = ''.join(para_text)
-                if text.strip():
-                    content.append(text)
+                text = ''.join(para_text).rstrip('\n')
+
+                if not text.strip():
+                    content.append('\n')
+                    continue
+
+                # Apply heading styles
+                heading_map = {
+                    'TITLE': '# ',
+                    'HEADING_1': '## ',
+                    'HEADING_2': '### ',
+                    'HEADING_3': '#### ',
+                    'HEADING_4': '##### ',
+                    'HEADING_5': '###### ',
+                    'HEADING_6': '###### ',
+                }
+
+                # Check for list
+                list_prefix = get_list_prefix(paragraph, lists)
+
+                if list_prefix:
+                    content.append(f"{list_prefix}{text}\n")
+                elif named_style in heading_map:
+                    # Title is already used for doc title, so headings start at ##
+                    content.append(f"{heading_map[named_style]}{text}\n\n")
+                else:
+                    content.append(f"{text}\n\n")
 
             elif 'table' in element:
                 table = element['table']
-                content.append("\n[TABLE]\n")
-                for row in table.get('tableRows', []):
-                    row_texts = []
+                rows = table.get('tableRows', [])
+
+                if not rows:
+                    continue
+
+                table_data = []
+                for row in rows:
+                    row_cells = []
                     for cell in row.get('tableCells', []):
                         cell_text = []
                         for cell_content in cell.get('content', []):
@@ -164,9 +276,25 @@ def read_google_doc(services, doc_id: str) -> str:
                                 for elem in cell_content['paragraph'].get('elements', []):
                                     if 'textRun' in elem:
                                         cell_text.append(elem['textRun'].get('content', '').strip())
-                        row_texts.append(' '.join(cell_text))
-                    content.append(' | '.join(row_texts))
-                content.append("[/TABLE]\n")
+                        row_cells.append(' '.join(cell_text).replace('|', '\\|'))
+                    table_data.append(row_cells)
+
+                if table_data:
+                    # Normalize column count
+                    max_cols = max(len(row) for row in table_data)
+                    for row in table_data:
+                        while len(row) < max_cols:
+                            row.append('')
+
+                    # Output as markdown table
+                    content.append('\n')
+                    # Header row
+                    content.append('| ' + ' | '.join(table_data[0]) + ' |\n')
+                    content.append('| ' + ' | '.join(['---'] * max_cols) + ' |\n')
+                    # Data rows
+                    for row in table_data[1:]:
+                        content.append('| ' + ' | '.join(row) + ' |\n')
+                    content.append('\n')
 
         return ''.join(content)
 
