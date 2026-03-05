@@ -1,7 +1,7 @@
 ---
 name: Feature Workflow
 description: "Conocimiento sobre gestión de features, PRDs, user stories, planificación e implementación. Se activa cuando el usuario trabaja con features, menciona PRD, tareas, planificación de implementación, o usa comandos como /feature, /prd, /tasks, /plan, /code."
-version: 1.0.0
+disable-model-invocation: true
 ---
 
 # Gestión del Ciclo de Vida de Features
