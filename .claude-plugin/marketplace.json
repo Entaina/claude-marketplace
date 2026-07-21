@@ -11,10 +11,10 @@
   },
   "plugins": [
     {
-      "name": "sw30",
-      "source": "./plugins/sw30",
+      "name": "vcs",
+      "source": "./plugins/vcs",
       "description": "Spanish-language version control commands for non-technical users. Simplifies Git operations with natural language file selection and auto-generated commit messages.",
-      "version": "1.0.0",
+      "version": "2.0.0",
       "author": {
         "name": "Entaina"
       },
@@ -36,7 +36,7 @@
       "name": "gdocs",
       "source": "./plugins/gdocs",
       "description": "Read and write Google Drive files (Docs, Sheets, Slides) from Claude Code with OAuth authentication",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "author": {
         "name": "Entaina"
       },
