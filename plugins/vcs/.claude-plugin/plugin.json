@@ -1,6 +1,6 @@
 {
   "name": "vcs",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "description": "Spanish-language version control commands for non-technical users. Simplifies Git operations with natural language file selection and auto-generated commit messages.",
   "author": {
     "name": "Entaina",

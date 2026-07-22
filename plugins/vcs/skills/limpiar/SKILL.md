@@ -1,5 +1,9 @@
 ---
+name: limpiar
 description: Descarta cambios no confirmados para restaurar el repositorio a estado limpio
+argument-hint: "[archivos...]"
+disable-model-invocation: true
+allowed-tools: Bash(git status:*) Bash(git diff:*) Bash(git rev-parse:*)
 ---
 
 # VCS Limpiar - Restablecer a Estado Limpio
@@ -14,7 +18,7 @@ Limpia el directorio de trabajo descartando modificaciones y eliminando archivos
 
 Pasos a ejecutar:
 1. Comprobar si estamos en un repositorio git
-2. Analizar parámetros para determinar el modo de limpieza:
+2. Analizar los parámetros (`$ARGUMENTS`) para determinar el modo de limpieza:
    - Si se proporcionan archivos específicos: limpiar solo esos archivos
    - Si no se especifican archivos: limpiar todos los cambios (limpieza completa)
 3. Comprobar estado actual del repositorio para ver qué se limpiará:

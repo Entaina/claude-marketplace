@@ -1,5 +1,8 @@
 ---
+name: etiquetar
 description: Crea una etiqueta para marcar hitos o versiones importantes del proyecto
+argument-hint: "[mensaje-etiqueta]"
+allowed-tools: Bash(git log:*) Bash(git rev-parse:*) Bash(git tag:*)
 ---
 
 # VCS Etiquetar - Crear Etiquetas de Versión
@@ -15,7 +18,7 @@ Crea una etiqueta git en el commit actual con un mensaje proporcionado o una mar
 Pasos a ejecutar:
 1. Comprobar si estamos en un repositorio git
 2. Verificar que hay commits para etiquetar (el repositorio no está vacío)
-3. Si se proporciona un mensaje de etiqueta:
+3. Si se proporciona un mensaje de etiqueta (`$ARGUMENTS`):
    - Usar el mensaje proporcionado como nombre de la etiqueta (saneado para compatibilidad con git)
    - Eliminar caracteres especiales y espacios, reemplazar con guiones
 4. Si no se proporciona mensaje de etiqueta:

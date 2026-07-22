@@ -1,5 +1,8 @@
 ---
+name: historial
 description: Muestra el historial de commits del repositorio en formato fácil de usar
+argument-hint: "[número-de-commits]"
+allowed-tools: Bash(git log:*) Bash(git rev-parse:*)
 ---
 
 # VCS Historial - Mostrar Historial de Commits
@@ -19,7 +22,7 @@ Pasos a ejecutar:
    - Fecha del commit
    - Nombre del autor
    - Mensaje del commit
-3. Limitar al número especificado de commits (predeterminado: 10)
+3. Limitar al número de commits indicado en `$ARGUMENTS` (predeterminado: 10)
 4. Formatear la salida de forma limpia y legible con saltos de línea apropiados entre commits
 5. Usar un formato visual claro que separe cada entrada de commit con líneas en blanco
 6. Incluir espaciado y formato apropiados para legibilidad en pantalla de terminal

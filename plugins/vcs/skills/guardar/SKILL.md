@@ -1,5 +1,8 @@
 ---
+name: guardar
 description: Guarda cambios en el control de versiones con mensaje automático o personalizado
+argument-hint: "[descripción-archivos] [-m \"mensaje\"]"
+allowed-tools: Bash(git status:*) Bash(git diff:*) Bash(git ls-files:*) Bash(git rev-parse:*) Bash(git add:*) Bash(git commit:*)
 ---
 
 # VCS Guardar - Añadir y Confirmar Cambios
@@ -16,7 +19,7 @@ Añade cambios y crea una confirmación con el mensaje proporcionado, o genera u
 
 Pasos a ejecutar:
 1. Comprobar si estamos en un repositorio git
-2. Analizar los argumentos del comando:
+2. Analizar los argumentos del comando (`$ARGUMENTS`):
    - Extraer la opción `-m "mensaje"` si está presente
    - Identificar la descripción de archivos (todo antes de la opción -m, o el argumento completo si no hay -m)
    - Si no hay descripción de archivos: guardar todos los cambios
@@ -31,7 +34,7 @@ Pasos a ejecutar:
 4. Preparar los archivos resueltos:
    - **Modo selectivo**: Usar `git add <archivos-resueltos>` para archivos interpretados
    - **Modo todos los cambios**: Usar `git add .` si no se proporciona descripción de archivos
-4. Si no se proporciona mensaje de confirmación:
+5. Si no se proporciona mensaje de confirmación:
    a. Ejecutar `git status --porcelain` para obtener vista general de archivos cambiados
    b. Ejecutar `git diff` y `git diff --cached` para analizar cambios reales
    c. Analizar los cambios para determinar:
@@ -42,10 +45,10 @@ Pasos a ejecutar:
       - Usar verbos de acción como: add, update, fix, remove, refactor, docs, config, feat
       - Mantener el mensaje conciso pero descriptivo (50 caracteres o menos para la primera línea)
       - Incluir detalles adicionales en el cuerpo si los cambios son complejos
-5. Ejecutar `git commit -m "<mensaje-confirmación>"` con el mensaje proporcionado o generado
-6. Mostrar confirmación del commit con hash y resumen
-7. Gestionar casos en los que no hay cambios que confirmar
-8. **Validación para modo selectivo**:
+6. Ejecutar `git commit -m "<mensaje-confirmación>"` con el mensaje proporcionado o generado
+7. Mostrar confirmación del commit con hash y resumen
+8. Gestionar casos en los que no hay cambios que confirmar
+9. **Validación para modo selectivo**:
    - Verificar que los archivos especificados existen y tienen cambios
    - Mostrar advertencia si los archivos no existen o no tienen modificaciones
    - Mostrar resumen de qué archivos se están guardando vs. qué queda sin preparar

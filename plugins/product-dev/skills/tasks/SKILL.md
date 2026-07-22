@@ -13,7 +13,7 @@ allowed-tools:
 
 # Generar Tareas
 
-Crea tareas (historias de usuario) a partir del PRD del feature siguiendo el **Principio de Independencia**. Estas tareas serán planificadas con `/plan` e implementadas con `/code`.
+Crea tareas (historias de usuario) a partir del PRD del feature siguiendo el **Principio de Independencia**. Estas tareas serán planificadas con `/product-dev:plan` e implementadas con `/product-dev:code`.
 
 ## Variables
 feature_id: $ARGUMENTS    # OBLIGATORIO - ID del feature
@@ -49,7 +49,7 @@ Cada tarea debe cumplir:
 
 1. Buscar en `features/{feature_id}/`
 2. Verificar que existe `feature.json` y `prd.md`
-3. Si falta el PRD, mostrar error y sugerir `/prd {feature_id}` primero
+3. Si falta el PRD, mostrar error y sugerir `/product-dev:prd {feature_id}` primero
 
 ### Fase 2: Análisis de Tareas Existentes (OBLIGATORIO)
 
@@ -239,7 +239,7 @@ Conflictos detectados: {M}
 - {descripción del conflicto si hay}
 
 Siguiente paso:
-/plan features/{feature_id}/tasks/001-{slug}
+/product-dev:plan features/{feature_id}/tasks/001-{slug}
 ```
 
 ## Consideraciones

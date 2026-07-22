@@ -1,4 +1,5 @@
 ---
+name: ayuda
 description: Muestra información de ayuda sobre todos los comandos VCS disponibles
 ---
 

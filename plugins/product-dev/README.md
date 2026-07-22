@@ -28,24 +28,24 @@ Copia la carpeta `product-dev` a `.claude-plugin/` de tu proyecto.
 
 | Comando | Descripción | Uso |
 |---------|-------------|-----|
-| `/feature` | Listar features o crear uno nuevo | `/feature` o `/feature "descripción"` |
-| `/prd` | Generar PRD para un feature | `/prd {feature_id}` |
-| `/tasks` | Generar user stories desde PRD | `/tasks {feature_id}` |
-| `/plan` | Crear plan de implementación | `/plan {task_path}` |
-| `/code` | Implementar tarea con el plan | `/code {task_path}` |
+| `/product-dev:feature` | Listar features o crear uno nuevo | `/product-dev:feature` o `/product-dev:feature "descripción"` |
+| `/product-dev:prd` | Generar PRD para un feature | `/product-dev:prd {feature_id}` |
+| `/product-dev:tasks` | Generar user stories desde PRD | `/product-dev:tasks {feature_id}` |
+| `/product-dev:plan` | Crear plan de implementación | `/product-dev:plan {task_path}` |
+| `/product-dev:code` | Implementar tarea con el plan | `/product-dev:code {task_path}` |
 
 ## Flujo de Trabajo
 
 ```
-/feature "Mi nueva funcionalidad"
+/product-dev:feature "Mi nueva funcionalidad"
     ↓
-/prd 2025-12-20-143052-mi-funcionalidad
+/product-dev:prd 2025-12-20-143052-mi-funcionalidad
     ↓
-/tasks 2025-12-20-143052-mi-funcionalidad
+/product-dev:tasks 2025-12-20-143052-mi-funcionalidad
     ↓
-/plan features/2025-12-20-143052-mi-funcionalidad/tasks/001-setup
+/product-dev:plan features/2025-12-20-143052-mi-funcionalidad/tasks/001-setup
     ↓
-/code features/2025-12-20-143052-mi-funcionalidad/tasks/001-setup
+/product-dev:code features/2025-12-20-143052-mi-funcionalidad/tasks/001-setup
 ```
 
 ## Estructura de Archivos

@@ -27,9 +27,9 @@ Gestiona features del proyecto: crea nuevos, lista existentes, o detecta automá
 
 | Task Status | Siguiente Comando |
 |-------------|-------------------|
-| `defined` | `/plan {task_path}` |
-| `planned` | `/code {task_path}` |
-| `in_progress` | `/code {task_path}` |
+| `defined` | `/product-dev:plan {task_path}` |
+| `planned` | `/product-dev:code {task_path}` |
+| `in_progress` | `/product-dev:code {task_path}` |
 
 Buscar la primera tarea no completada (ordenadas por priority) y recomendar el comando apropiado.
 
@@ -55,7 +55,7 @@ Progreso: [███████░░░░░░░░░] 43% (3/7 tareas)
 ═══════════════════════════════════════════════════════════════
 📍 SIGUIENTE ACCIÓN:
 
-/code features/.../tasks/004-crud-oportunidades
+/product-dev:code features/.../tasks/004-crud-oportunidades
 ═══════════════════════════════════════════════════════════════
 
 
@@ -66,7 +66,7 @@ Si no hay features:
 No hay features creados todavía.
 
 Para crear uno nuevo:
-/feature "Descripción de lo que quieres construir..."
+/product-dev:feature "Descripción de lo que quieres construir..."
 ```
 
 ### Con descripción → Crear Feature
@@ -122,5 +122,5 @@ Solapamientos detectados: {M}
 {lista de solapamientos si hay}
 
 ## Siguiente Paso
-/prd {id}
+/product-dev:prd {id}
 ```

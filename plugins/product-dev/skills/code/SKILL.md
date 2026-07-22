@@ -24,7 +24,7 @@ task_path: $ARGUMENTS
 
 1. **Leer el plan**
    - Cargar `{task_path}/plan.md`
-   - Si no existe, sugerir `/plan {task_path}` primero
+   - Si no existe, sugerir `/product-dev:plan {task_path}` primero
 
 2. **Verificar dependencias**
    - Cargar `features/{feature_id}/feature.json`
@@ -69,8 +69,8 @@ task_path: $ARGUMENTS
 ### Fase 5: Determinar Siguiente Acción
 
 1. **Buscar siguiente tarea pendiente** (por prioridad)
-   - Si hay tareas con status `defined` → sugerir `/plan {task_path}`
-   - Si hay tareas con status `planned` → sugerir `/code {task_path}`
+   - Si hay tareas con status `defined` → sugerir `/product-dev:plan {task_path}`
+   - Si hay tareas con status `planned` → sugerir `/product-dev:code {task_path}`
 
 2. **Si no hay más tareas** → Feature completado
 
@@ -100,7 +100,7 @@ Tareas:
 ○ 004 - {siguiente tarea} ({status})
 
 ## Siguiente Paso
-/plan {siguiente_tarea_path}
+/product-dev:plan {siguiente_tarea_path}
 ```
 
 O si el feature está completo:

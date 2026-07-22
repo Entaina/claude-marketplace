@@ -1,5 +1,8 @@
 ---
+name: iniciar
 description: Inicializa un nuevo repositorio de control de versiones en el directorio actual
+disable-model-invocation: true
+allowed-tools: Bash(git init:*) Bash(git rev-parse:*)
 ---
 
 # VCS Iniciar - Inicializar Sistema de Control de Versiones

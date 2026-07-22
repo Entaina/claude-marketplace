@@ -1,7 +1,7 @@
 ---
-name: Feature Workflow
-description: "Conocimiento sobre gestión de features, PRDs, user stories, planificación e implementación. Se activa cuando el usuario trabaja con features, menciona PRD, tareas, planificación de implementación, o usa comandos como /feature, /prd, /tasks, /plan, /code."
-disable-model-invocation: true
+name: feature-workflow
+description: "Conocimiento sobre gestión de features, PRDs, user stories, planificación e implementación. Se activa cuando el usuario trabaja con features, menciona PRD, tareas, planificación de implementación, o usa comandos como /product-dev:feature, /product-dev:prd, /product-dev:tasks, /product-dev:plan, /product-dev:code."
+user-invocable: false
 ---
 
 # Gestión del Ciclo de Vida de Features
@@ -11,10 +11,10 @@ Guía el proceso completo de desarrollo de features desde la concepción hasta l
 ## Flujo del Workflow
 
 ```
-/feature → /prd → /tasks → /plan → /code
-   ↓         ↓        ↓         ↓        ↓
-Crear    Generar   Dividir   Planear  Implementar
-Feature    PRD    en Tareas   Tarea     Tarea
+/product-dev:feature → :prd → :tasks → :plan → :code
+        ↓               ↓       ↓        ↓       ↓
+      Crear          Generar  Dividir  Planear  Implementar
+      Feature          PRD   en Tareas  Tarea     Tarea
 ```
 
 ## Estructura de Archivos
@@ -34,19 +34,19 @@ features/
 
 | Estado | Descripción | Siguiente Paso |
 |--------|-------------|----------------|
-| `created` | Feature recién creado | `/prd {id}` |
-| `prd_created` | PRD generado | `/tasks {id}` |
-| `tasks_created` | Tareas generadas | `/plan {task_path}` |
-| `in_progress` | Alguna tarea en progreso | `/code {task_path}` |
+| `created` | Feature recién creado | `/product-dev:prd {id}` |
+| `prd_created` | PRD generado | `/product-dev:tasks {id}` |
+| `tasks_created` | Tareas generadas | `/product-dev:plan {task_path}` |
+| `in_progress` | Alguna tarea en progreso | `/product-dev:code {task_path}` |
 | `completed` | Todas las tareas completadas | Revisar y crear PR |
 
 ## Estados de las Tareas
 
 | Estado | Descripción | Siguiente Paso |
 |--------|-------------|----------------|
-| `defined` | User story creada | `/plan {task_path}` |
-| `planned` | Plan generado | `/code {task_path}` |
-| `in_progress` | Implementación iniciada | `/code {task_path}` |
+| `defined` | User story creada | `/product-dev:plan {task_path}` |
+| `planned` | Plan generado | `/product-dev:code {task_path}` |
+| `in_progress` | Implementación iniciada | `/product-dev:code {task_path}` |
 | `completed` | Tarea finalizada | Siguiente tarea |
 
 ## Principios Clave
@@ -124,11 +124,11 @@ Al crear tareas o planes, verificar:
 
 | Comando | Propósito | Argumento |
 |---------|-----------|-----------|
-| `/feature` | Listar o crear features | `[descripción]` |
-| `/prd` | Generar PRD | `{feature_id}` |
-| `/tasks` | Generar user stories | `{feature_id}` |
-| `/plan` | Crear plan de implementación | `{task_path}` |
-| `/code` | Implementar tarea | `{task_path}` |
+| `/product-dev:feature` | Listar o crear features | `[descripción]` |
+| `/product-dev:prd` | Generar PRD | `{feature_id}` |
+| `/product-dev:tasks` | Generar user stories | `{feature_id}` |
+| `/product-dev:plan` | Crear plan de implementación | `{task_path}` |
+| `/product-dev:code` | Implementar tarea | `{task_path}` |
 
 ## Solución de Problemas
 
@@ -143,7 +143,7 @@ ls features/*/feature.json
 # Verificar que existe
 cat features/{id}/prd.md
 # Si no existe
-/prd {id}
+/product-dev:prd {id}
 ```
 
 ### "Tarea no encontrada"
@@ -155,4 +155,4 @@ ls features/{id}/tasks/*/user-story.md
 ### "Dependencia no completada"
 1. Verificar estado en `feature.json`
 2. Completar dependencias primero
-3. Ejecutar `/code` en orden
+3. Ejecutar `/product-dev:code` en orden

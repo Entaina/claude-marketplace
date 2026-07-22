@@ -1,5 +1,7 @@
 ---
+name: diferencias
 description: Muestra cambios pendientes con resumen inteligente de impacto en el proyecto
+allowed-tools: Bash(git status:*) Bash(git diff:*) Bash(git rev-parse:*)
 ---
 
 # VCS Diferencias - Mostrar Cambios Pendientes

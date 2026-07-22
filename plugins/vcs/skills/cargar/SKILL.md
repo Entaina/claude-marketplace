@@ -1,5 +1,9 @@
 ---
+name: cargar
 description: Restaura el repositorio a un estado de commit, etiqueta o rama anterior
+argument-hint: "[hash-commit-o-etiqueta-o-referencia]"
+disable-model-invocation: true
+allowed-tools: Bash(git log:*) Bash(git status:*) Bash(git diff:*) Bash(git rev-parse:*) Bash(git tag:*)
 ---
 
 # VCS Cargar - Restaurar Versión Anterior
@@ -14,7 +18,7 @@ Restablece el repositorio a un commit, etiqueta o rama específica usando `git r
 
 Pasos a ejecutar:
 1. Comprobar si estamos en un repositorio git
-2. **Gestionar parámetro de referencia ausente**:
+2. **Gestionar parámetro de referencia ausente** (la referencia solicitada es `$ARGUMENTS`):
    - Si no se proporciona referencia de commit, mostrar historial de commits usando `git log --oneline --decorate -10`
    - Formatear el historial de forma fácil de usar mostrando:
      - Hash del commit (versión corta)

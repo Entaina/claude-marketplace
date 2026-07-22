@@ -34,7 +34,6 @@ After adding the marketplace:
 |--------|-------------|----------|
 | [vcs](plugins/vcs) | Spanish-language version control commands for non-technical users. Simplifies Git operations with natural language file selection and auto-generated commit messages. | devops |
 | [product-dev](plugins/product-dev) | Gestión del ciclo de vida de features: crear, documentar con PRD, dividir en tareas, planificar e implementar. | workflow |
-| [gdocs](plugins/gdocs) | Read and write Google Drive files (Docs, Sheets, Slides) from Claude Code with OAuth authentication. | productivity |
 
 ## Creating Plugins
 
@@ -47,15 +46,16 @@ plugins/
   my-plugin/
     .claude-plugin/
       plugin.json
-    .claude/
-      commands/
-        my-command.md
-      skills/
-        my-skill/
-          SKILL.md
-      agents/
-        my-agent.md
+    skills/
+      my-skill/
+        SKILL.md
+    agents/
+      my-agent.md
 ```
+
+Skills follow the [Agent Skills specification](https://agentskills.io/specification): each skill is a
+directory containing a `SKILL.md` whose frontmatter `name` must be lowercase kebab-case and match the
+directory name. A skill at `skills/my-skill/` is invoked as `/my-plugin:my-skill`.
 
 2. Add it to `.claude-plugin/marketplace.json`:
 

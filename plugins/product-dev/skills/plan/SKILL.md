@@ -13,7 +13,7 @@ allowed-tools:
 
 # Crear Plan de Implementación
 
-Genera un plan detallado para implementar una tarea específica siguiendo el **Principio de Responsabilidad Única**. Este plan será ejecutado por `/code` para generar la implementación.
+Genera un plan detallado para implementar una tarea específica siguiendo el **Principio de Responsabilidad Única**. Este plan será ejecutado por `/product-dev:code` para generar la implementación.
 
 ## Variables
 task_path: $ARGUMENTS           # OBLIGATORIO - Path de la tarea
@@ -296,7 +296,7 @@ Al finalizar, mostrar:
 ✅ Plan creado: {task_path}/plan.md
 
 📋 Siguiente paso:
-   Ejecuta /code {task_path} para implementar este plan
+   Ejecuta /product-dev:code {task_path} para implementar este plan
 ```
 
 ## Consideraciones

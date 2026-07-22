@@ -13,7 +13,7 @@ allowed-tools:
 
 # Crear PRD
 
-Genera un documento PRD estructurado a partir de la descripción del feature siguiendo el **Principio de Fuente Única de Verdad**. Este PRD será usado por `/tasks` para generar las historias de usuario.
+Genera un documento PRD estructurado a partir de la descripción del feature siguiendo el **Principio de Fuente Única de Verdad**. Este PRD será usado por `/product-dev:tasks` para generar las historias de usuario.
 
 ## Variables
 feature_id: $ARGUMENTS    # OBLIGATORIO - ID del feature
@@ -49,7 +49,7 @@ Cada PRD debe cumplir:
 
 1. Buscar en `features/{feature_id}/`
 2. Verificar que existe `feature.json`
-3. Si no existe, mostrar error y sugerir `/feature` primero
+3. Si no existe, mostrar error y sugerir `/product-dev:feature` primero
 4. Cargar `feature.json` y extraer `title` y `description`
 
 ### Fase 2: Análisis de PRDs Existentes (OBLIGATORIO)
@@ -223,7 +223,7 @@ Resumen del PRD:
 - {S} solapamientos detectados con otros PRDs
 
 Siguiente paso:
-/tasks {feature_id}
+/product-dev:tasks {feature_id}
 ```
 
 ## Consideraciones
