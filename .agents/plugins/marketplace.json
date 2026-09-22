@@ -1,0 +1,45 @@
+{
+  "name": "entaina",
+  "interface": {
+    "displayName": "Entaina"
+  },
+  "plugins": [
+    {
+      "name": "vcs",
+      "source": {
+        "source": "local",
+        "path": "./plugins/vcs"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_USE"
+      },
+      "category": "Productivity"
+    },
+    {
+      "name": "product-dev",
+      "source": {
+        "source": "local",
+        "path": "./plugins/product-dev"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_USE"
+      },
+      "category": "Productivity"
+    },
+    {
+      "name": "visual-explainer",
+      "source": {
+        "source": "npm",
+        "package": "@entaina/visual-explainer",
+        "version": "^0.2.0"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_USE"
+      },
+      "category": "Productivity"
+    }
+  ]
+}
