@@ -38,84 +38,45 @@ After adding the marketplace:
 | [skiller](https://github.com/Entaina/skiller) | Define, crea, extrae, valida y publica Agent Skills, distribuibles con skills.sh y versionadas con release-please. | productivity |
 | [git-skill](https://github.com/Entaina/git-skill) | Convenciones Git y mensajes de commit siguiendo estrictamente Conventional Commits v1.0.0. | devops |
 
-## Creating Plugins
+## Adding a plugin
 
-### Option 1: Add a plugin from this repository
+1. **One repository per plugin.** This repository only lists plugins; it
+   doesn't host them. (`vcs` and `product-dev` still live here for now.)
+2. **Skills follow [Agent Skills](https://agentskills.io/specification).**
+   Each one lives in `skills/<name>/SKILL.md`, and its frontmatter `name`
+   matches the directory.
+3. **Standards first, extras opt-in.** A root `plugin.json` following
+   [Agent Plugins](https://agent-plugins.org) is optional; when present, its
+   `name` matches the catalogue entry. Client-specific extras
+   (`.claude-plugin/plugin.json`, `dependencies`, agents) are allowed, but the
+   plugin must work without them. Claude Code reads the root `plugin.json`
+   unless `.claude-plugin/plugin.json` exists, and never merges the two.
+4. **Names describe the scope, not the tool.** Kebab-case, no `-skill` or
+   `-plugin` suffix, and the repository is named after the plugin.
+5. **Register the plugin in both catalogues** with the smallest entry that
+   works, and no `version` (it comes from the plugin itself):
 
-1. Create your plugin in the `plugins/` directory:
+   - `.claude-plugin/marketplace.json` (Claude Code):
+     ```json
+     { "name": "my-plugin",
+       "source": { "source": "github", "repo": "Entaina/my-plugin" },
+       "description": "…", "category": "productivity" }
+     ```
+     Add `"strict": false` only if the plugin has no manifest of its own.
+   - `.agents/plugins/marketplace.json` (Codex and ChatGPT):
+     ```json
+     { "name": "my-plugin",
+       "source": { "source": "url", "url": "https://github.com/Entaina/my-plugin.git" },
+       "policy": { "installation": "AVAILABLE", "authentication": "ON_USE" },
+       "category": "Productivity" }
+     ```
+     Use `url`: Codex rejects `github`, `git` and `git-subdir` for a plugin
+     at the root of its repository.
+6. **Install the plugin from both catalogues before merging**, and check
+   that its skills appear.
 
-```
-plugins/
-  my-plugin/
-    .claude-plugin/
-      plugin.json
-    skills/
-      my-skill/
-        SKILL.md
-    agents/
-      my-agent.md
-```
-
-Skills follow the [Agent Skills specification](https://agentskills.io/specification): each skill is a
-directory containing a `SKILL.md` whose frontmatter `name` must be lowercase kebab-case and match the
-directory name. A skill at `skills/my-skill/` is invoked as `/my-plugin:my-skill`.
-
-2. Add it to `.claude-plugin/marketplace.json`:
-
-```json
-{
-  "name": "my-plugin",
-  "source": "./plugins/my-plugin",
-  "description": "Description of what the plugin does",
-  "version": "1.0.0",
-  "author": {
-    "name": "Your Name"
-  },
-  "keywords": ["keyword1", "keyword2"],
-  "category": "productivity"
-}
-```
-
-### Option 2: Reference an external GitHub repository
-
-```json
-{
-  "name": "external-plugin",
-  "source": {
-    "source": "github",
-    "repo": "username/plugin-repo"
-  },
-  "description": "An external plugin"
-}
-```
-
-### Option 3: Reference any git repository
-
-```json
-{
-  "name": "git-plugin",
-  "source": {
-    "source": "url",
-    "url": "https://gitlab.com/team/plugin.git"
-  }
-}
-```
-
-## Plugin Entry Schema
-
-| Field | Required | Description |
-|-------|----------|-------------|
-| `name` | Yes | Plugin identifier (kebab-case) |
-| `source` | Yes | Path or source object |
-| `description` | No | Brief description |
-| `version` | No | Semantic version |
-| `author` | No | Author info object |
-| `homepage` | No | Documentation URL |
-| `repository` | No | Source code URL |
-| `license` | No | SPDX license (MIT, Apache-2.0, etc.) |
-| `keywords` | No | Discovery tags |
-| `category` | No | Plugin category |
-| `strict` | No | Require plugin.json (default: true) |
+For every entry field, see the
+[Claude Code marketplace reference](https://code.claude.com/docs/en/plugins/marketplace-reference).
 
 ## Plugin Categories
 
