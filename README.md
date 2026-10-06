@@ -35,6 +35,8 @@ After adding the marketplace:
 | [vcs](plugins/vcs) | Spanish-language version control commands for non-technical users. Simplifies Git operations with natural language file selection and auto-generated commit messages. | devops |
 | [product-dev](plugins/product-dev) | Gestión del ciclo de vida de features: crear, documentar con PRD, dividir en tareas, planificar e implementar. | workflow |
 | [visual-explainer](https://github.com/Entaina/visual-explainer) | Explicaciones visuales como páginas HTML autocontenidas o decks Slidev: diagramas, arquitecturas, reviews de diff y de plan, recaps, tablas comparativas, slides y fact-check. | documentation |
+| [skiller](https://github.com/Entaina/skiller) | Define, crea, extrae, valida y publica Agent Skills, distribuibles con skills.sh y versionadas con release-please. | productivity |
+| [git-skill](https://github.com/Entaina/git-skill) | Convenciones Git y mensajes de commit siguiendo estrictamente Conventional Commits v1.0.0. | devops |
 
 ## Creating Plugins
 

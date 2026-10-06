@@ -44,6 +44,34 @@
       },
       "keywords": ["visualization", "diagrams", "slides", "slidev", "mermaid", "review", "storyboard"],
       "category": "documentation"
+    },
+    {
+      "name": "skiller",
+      "source": {
+        "source": "github",
+        "repo": "Entaina/skiller"
+      },
+      "description": "Define, crea, extrae, valida y publica Agent Skills: de una idea o tarea repetible a una skill distribuible en su propio repositorio, instalable con skills.sh y versionada con release-please.",
+      "author": {
+        "name": "Entaina"
+      },
+      "keywords": ["skills", "agent-skills", "authoring", "validation", "publishing", "release-please"],
+      "category": "productivity",
+      "strict": false
+    },
+    {
+      "name": "git-skill",
+      "source": {
+        "source": "github",
+        "repo": "Entaina/git-skill"
+      },
+      "description": "Convenciones Git y mensajes de commit siguiendo estrictamente Conventional Commits v1.0.0.",
+      "author": {
+        "name": "Entaina"
+      },
+      "keywords": ["git", "commits", "conventional-commits", "vcs"],
+      "category": "devops",
+      "strict": false
     }
   ]
 }
